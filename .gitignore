@@ -1,0 +1,5 @@
+node_modules/
+dist/
+.hoplite/artifacts/
+src/assets/music/*.mp3
+src/assets/music/*.ogg
