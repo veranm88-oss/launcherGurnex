@@ -4,14 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https://piston-meta.mojang.com; img-src 'self' data: blob:; media-src 'self' blob:;" />
+    content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' https://piston-meta.mojang.com; img-src 'self' data: blob:; media-src 'self' blob: file:;" />
   <title>Gurnex</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/fonts/fonts.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body data-theme="light">
+<body data-theme="gray">
   <div class="bg" aria-hidden="true">
     <div class="blob b1"></div>
     <div class="blob b2"></div>
@@ -129,7 +127,7 @@
             <div class="chips">
               <div class="chip"><span class="chip-k">RAM</span><span class="chip-v" id="chipRam">4 ГБ</span></div>
               <div class="chip"><span class="chip-k">Моды</span><span class="chip-v" id="chipMods">0</span></div>
-              <div class="chip"><span class="chip-k">Загрузчик</span><span class="chip-v">Fabric</span></div>
+              <div class="chip"><span class="chip-k">Загрузчик</span><span class="chip-v" id="chipLoader">Fabric</span></div>
             </div>
           </div>
 
@@ -197,7 +195,7 @@
         <div class="view-head stagger">
           <div>
             <h2>Встроенные моды</h2>
-            <p class="muted">Проверенная сборка на Fabric. Включай нужное — лаунчер подставит моды при запуске.</p>
+            <p class="muted">Сборка на Fabric с Modrinth. Включи нужное — при запуске лаунчер сам скачает моды и их зависимости под выбранную версию.</p>
           </div>
           <div class="mods-summary"><b id="modsOn">0</b> из <span id="modsTotal">0</span> включено</div>
         </div>
@@ -261,13 +259,23 @@
               <div><div class="row-title">Скрывать лаунчер</div><div class="row-sub">После запуска игры</div></div>
               <label class="switch"><input type="checkbox" id="setClose" /><span></span></label>
             </div>
-            <label class="field"><span>Путь к Java</span><input id="setJava" placeholder="Автоматически" /></label>
+            <label class="field"><span>Путь к Java</span><input id="setJava" placeholder="Автоматически — лаунчер скачает нужную Java сам" /></label>
+            <div class="row folder-row">
+              <div class="folder-info">
+                <div class="row-title">Папка игры</div>
+                <div class="row-sub folder-path" id="rootPath">—</div>
+              </div>
+              <div class="folder-actions">
+                <button class="btn ghost" id="openRoot">Открыть</button>
+                <button class="btn ghost" id="changeRoot">Изменить</button>
+              </div>
+            </div>
           </div>
 
           <div class="card">
             <h3>Музыка</h3>
             <div class="row">
-              <div><div class="row-title">Фоновая мелодия</div><div class="row-sub">Тихая тема «Me and the Devil»</div></div>
+              <div><div class="row-title">Фоновая мелодия</div><div class="row-sub">Soap — Me and the Devil</div></div>
               <label class="switch"><input type="checkbox" id="setMusic" /><span></span></label>
             </div>
             <div class="field">
