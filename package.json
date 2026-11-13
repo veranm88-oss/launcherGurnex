@@ -1,0 +1,16 @@
+{
+  "name": "gurnex-launcher",
+  "productName": "Gurnex",
+  "version": "0.1.0",
+  "description": "Gurnex — лаунчер для Minecraft",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "node scripts/serve.js",
+    "preview": "node scripts/serve.js"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^45.3.2"
+  }
+}
